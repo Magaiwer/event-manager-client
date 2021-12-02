@@ -1,0 +1,49 @@
+<nb-card>
+  <nb-card-header>
+    <div class="row">
+      <div class="col-md-5">
+        <button
+          mat-icon-button
+          [routerLink]="['new']"
+          routerLinkActive="router-link-active"
+        >
+          <mat-icon>add</mat-icon>
+        </button>
+      </div>
+      <div class="col-md-6 pt-2">
+        <span class="text-lg-center"> Listagem de Eventos</span>
+      </div>
+    </div>
+  </nb-card-header>
+
+  <nb-card-body>
+    <div fxLayout="column" class="p-2">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">Evento</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Inscrições até</th>
+            <th scope="col">Data</th>
+            <th scope="col">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of events">
+            <td>{{ event.name }}</td>
+            <td>{{ event.description }}</td>
+            <td>{{ event.dateTimeClose | date: "dd/MM/yyyy HH:mm" }}</td>
+            <td>{{ event.dateTime | date: "dd/MM/yyyy HH:mm" }}</td>
+            <td class="w-15">
+              <div class="table-actions">
+                <button (click)="register(event.id)" nbButton ghost>
+                  <nb-icon icon="checkmark-square-2-outline"></nb-icon>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </nb-card-body>
+</nb-card>
