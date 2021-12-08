@@ -1,17 +1,9 @@
 <nb-card>
   <nb-card-header>
     <div class="row">
-      <div class="col-md-5">
-        <button
-          mat-icon-button
-          [routerLink]="['new']"
-          routerLinkActive="router-link-active"
-        >
-          <mat-icon>add</mat-icon>
-        </button>
-      </div>
+      <div class="col-md-5"></div>
       <div class="col-md-6 pt-2">
-        <span class="text-lg-center"> Listagem de Eventos</span>
+        <span class="text-lg-center"> Minhas Inscrições</span>
       </div>
     </div>
   </nb-card-header>
@@ -22,21 +14,36 @@
         <thead>
           <tr>
             <th scope="col">Evento</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">Inscrições até</th>
-            <th scope="col">Data</th>
-            <th scope="col">Ações</th>
+            <th scope="col" class="text-center">Situação</th>
+            <th scope="col" class="text-center">Ações</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let subscription of subscripitons">
+          <tr *ngFor="let subscription of subscriptions">
             <td>{{ subscription.event.name }}</td>
-            <td>{{ subscription.enabled}}</td>
+            <td class="text-center">
+              {{ getStatusLabel(subscription.status) }}
+            </td>
             <td class="w-15">
-              <div class="table-actions">
-                <button  nbButton ghost>
-                  <nb-icon icon="checkmark-square-2-outline"></nb-icon>
-                </button>
+              <div class="table-actions" >
+                  <button
+                    nbButton
+                    ghost
+                    nbTooltip="Cancelar"
+                    (click)="unsubscribeEvent(subscription)"
+                    [disabled] = "!enabledActionButton(subscriptions)">
+                    <nb-icon icon="close-outline"></nb-icon>
+                  </button>
+
+                  <button
+                    nbButton
+                    ghost
+                    nbTooltip="Certificado"
+                    (click)="generateCertificate(subscription)"
+                    [disabled] = "!enableCertificate(subscription.status)">
+                    <nb-icon icon="file-text-outline"></nb-icon>
+
+                  </button>
               </div>
             </td>
           </tr>

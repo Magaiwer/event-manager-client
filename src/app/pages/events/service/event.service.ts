@@ -46,7 +46,6 @@ export class EventService {
     )
   }
 
-
   protected handleError(error: any): Observable<any>{
     return throwError(error);
   }

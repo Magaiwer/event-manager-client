@@ -25,7 +25,7 @@
             <th scope="col">Descrição</th>
             <th scope="col">Inscrições até</th>
             <th scope="col">Data</th>
-            <th scope="col">Ações</th>
+            <th scope="col" class="text-center">Participar</th>
           </tr>
         </thead>
         <tbody>
@@ -35,8 +35,8 @@
             <td>{{ event.dateTimeClose | date: "dd/MM/yyyy HH:mm" }}</td>
             <td>{{ event.dateTime | date: "dd/MM/yyyy HH:mm" }}</td>
             <td class="w-15">
-              <div class="table-actions">
-                <button (click)="register(event.id)" nbButton ghost>
+              <div class="table-actions text-center">
+                <button (click)="register(event)" nbButton ghost>
                   <nb-icon icon="checkmark-square-2-outline"></nb-icon>
                 </button>
               </div>

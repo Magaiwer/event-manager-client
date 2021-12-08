@@ -5,7 +5,7 @@ export class Subscription extends BaseResourceModel {
     public event?: Event,
     public eventId?: String,
     public userEmail?: String,
-    public enabled?: boolean,
+    public status?: String,
 
   ) {
     super()
