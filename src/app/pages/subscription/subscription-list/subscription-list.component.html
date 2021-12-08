@@ -21,8 +21,8 @@
         <tbody>
           <tr *ngFor="let subscription of subscriptions">
             <td>{{ subscription.event.name }}</td>
-            <td class="text-center">
-              {{ getStatusLabel(subscription.status) }}
+            <td class="text-center ">
+              <span > {{ getStatusLabel(subscription.status) }} </span>
             </td>
             <td class="w-15">
               <div class="table-actions" >
@@ -31,7 +31,7 @@
                     ghost
                     nbTooltip="Cancelar"
                     (click)="unsubscribeEvent(subscription)"
-                    [disabled] = "!enabledActionButton(subscriptions)">
+                    [disabled] = "!enabledActionButton(subscription.status)">
                     <nb-icon icon="close-outline"></nb-icon>
                   </button>
 

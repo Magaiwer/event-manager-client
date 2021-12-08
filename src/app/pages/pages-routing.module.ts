@@ -24,6 +24,11 @@ const routes: Routes = [{
       loadChildren: () => import('../pages/subscription/subscription.module')
         .then(m => m.SubscriptionModule)
     },
+    {
+      path: 'certificate',
+      loadChildren: () => import('../pages/certificate/certificate.module')
+        .then(m => m.CertificateModule)
+    },
     { path: '', redirectTo: '/events', pathMatch: 'full' }
   ],
 }];

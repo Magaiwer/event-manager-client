@@ -23,6 +23,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
     pathMatch: 'prefix',
     link: '/pages/subscriptions/',
   },
+  {
+    title: 'Validar Certificado',
+    icon: 'checkmark-outline',
+    selected: false,
+    pathMatch: 'prefix',
+    link: '/pages/certificate/',
+  },
 
       /*{
         title: 'Form Inputs',

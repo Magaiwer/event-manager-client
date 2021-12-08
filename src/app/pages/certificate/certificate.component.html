@@ -1,0 +1,42 @@
+<nb-card>
+  <nb-card-body class="example-items-col">
+    <form [formGroup]="myForm" (ngSubmit)="validate()">
+
+
+    <div class="form-group col-md-6">
+      <label for="certificate" class="label">Certificado</label>
+      <input
+        type="text"
+        nbInput
+        fullWidth
+        status="primary"
+        required
+        id="certificate"
+        placeholder="Código do certificado"
+        formControlName="certificate"
+        [status]="myForm.controls.certificate.dirty ? (myForm.controls.certificate.invalid  ? 'danger' : 'success') : 'basic'"
+      />
+
+      <ng-container class="caption status-danger">
+        <p class="caption status-danger"
+           *ngIf="myForm.controls.certificate.errors?.required && myForm.controls.certificate.touched">
+          Código do certificado inválido!
+        </p>
+      </ng-container>
+    </div>
+
+    <div class="form-group col-md-6">
+      <button
+       type="submit"
+        nbButton
+        hero
+        outline
+        status="primary"
+        size="medium"
+      >
+        Validar
+      </button>
+    </div>
+  </form>
+  </nb-card-body>
+</nb-card>
